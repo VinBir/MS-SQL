@@ -23,7 +23,7 @@ create table train
 
  SELECT 
 	*,
-	COALESCE(DATEDIFF(minute, (SELECT MAX(timing) FROM train WHERE timing < a.timing AND id = a.id), a.timing), 0)/60 as tdiff
+	COALESCE(DATEDIFF(hour, (SELECT MAX(timing) FROM train WHERE timing < a.timing AND id = a.id), a.timing), 0) as tdiff
 FROM train a;
 
 select DATEDIFf(SECOND, '2011-10-21 21:42:00.000', '2011-10-21 22:02:24.107') as x;
